@@ -19,10 +19,13 @@ const errorHandler = (err: any, req: Request, res: Response, next: NextFunction)
   err.statusCode = err.statusCode || 500;
 
   let error = err;
-  // if (error instanceof CastError) error = handleCastErrDB(error);
   // if (error.code === 11000) error = handleDuplicateFieldsDB(error);
 
-  if (error instanceof JsonWebTokenError) {
+  if (err?.['name'] === 'CastError') {
+    const message = `Invalid ${error?.['path']} : ${error?.['value']}`;
+
+    return res.status(400).json({ success: false, message });
+  } else if (error instanceof JsonWebTokenError) {
     return res.status(401).json({
       success: false,
       message: 'Invalid token! Please login again',
