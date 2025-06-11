@@ -13,7 +13,7 @@ export const signup = catchAsync(async (req, res, next) => {
   const userWithEmailOrPhone = await User.findOne({ email });
 
   if (userWithEmailOrPhone) {
-    return next(new AppError(`A user exists with this email or phone number; if it's you, please login.`, 400));
+    return next(new AppError(`A user exists with this email; if it's you, please login.`, 400));
   }
 
   const newUser = await User.create({
