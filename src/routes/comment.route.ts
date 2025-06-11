@@ -8,7 +8,7 @@ const router = express.Router();
 
 /**
  * @swagger
- * /api/v1/comment:
+ * /api/v1/comments:
  *   post:
  *     summary: Create a new comment for a blog post
  *     tags:
@@ -99,7 +99,7 @@ router.post('/', protect, createComment);
 
 /**
  * @swagger
- * /api/v1/comment/{id}:
+ * /api/v1/comments/{id}:
  *   patch:
  *     summary: Update a comment by ID
  *     tags:
@@ -200,7 +200,7 @@ router.patch('/:id', protect, updateComment);
 
 /**
  * @swagger
- * /api/v1/comment/{id}:
+ * /api/v1/comments/{id}:
  *   delete:
  *     summary: Delete a comment by ID
  *     tags:

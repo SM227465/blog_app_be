@@ -6,7 +6,7 @@ const router = express.Router();
 
 /**
  * @swagger
- * /api/v1/blog:
+ * /api/v1/blogs:
  *   get:
  *     summary: Get a paginated list of blogs
  *     tags:
@@ -146,7 +146,7 @@ router.get('/', getBlogs);
 
 /**
  * @swagger
- * /api/v1/blog:
+ * /api/v1/blogs:
  *   post:
  *     summary: Create a new blog post
  *     tags:
@@ -204,7 +204,7 @@ router.post('/', protect, createBlog);
 
 /**
  * @swagger
- * /api/v1/blog/{id}:
+ * /api/v1/blogs/{id}:
  *   get:
  *     summary: Get a blog post by ID
  *     tags:
@@ -275,7 +275,7 @@ router.get('/:id', getBlog);
 
 /**
  * @swagger
- * /api/v1/blog/{id}:
+ * /api/v1/blogs/{id}:
  *   patch:
  *     summary: Update a blog post by ID
  *     tags:
@@ -367,7 +367,7 @@ router.patch('/:id', protect, updateBlog);
 
 /**
  * @swagger
- * /api/v1/blog/{id}:
+ * /api/v1/blogs/{id}:
  *   delete:
  *     summary: Delete a blog post by ID
  *     tags:

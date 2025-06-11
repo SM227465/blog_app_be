@@ -45,8 +45,8 @@ app.get('/', (req, res) => {
 app.use('/api/docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 app.use('/api/documentation', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 app.use('/api/v1/auth', userRouter);
-app.use('/api/v1/blog', blogRouter);
-app.use('/api/v1/comment', commentRouter);
+app.use('/api/v1/blogs', blogRouter);
+app.use('/api/v1/comments', commentRouter);
 
 app.all('*', (req, res, next) => {
   res.status(404).json({

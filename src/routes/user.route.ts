@@ -136,7 +136,7 @@ router.post('/signup', signup);
 
 /**
  * @swagger
- * /api/v1/auth/email-login:
+ * /api/v1/auth/login/email:
  *   post:
  *     summary: Log in an existing user
  *     description: Authenticates a user with email and password. Returns an access and refresh token along with user information (excluding the password).
@@ -261,11 +261,11 @@ router.post('/signup', signup);
  *                   type: string
  *                   example: "Incorrect email or password"
  */
-router.post('/email-login', emailLogin);
+router.post('/login/email', emailLogin);
 
 /**
  * @swagger
- * /api/v1/auth/phone-login:
+ * /api/v1/auth/login/phone:
  *   post:
  *     summary: Phone login with OTP verification
  *     description: Allows users to login by receiving an OTP on their phone number.
@@ -327,7 +327,7 @@ router.post('/email-login', emailLogin);
  *                   type: string
  *                   example: "No user found with this countryCode and phoneNumber"
  */
-router.post('/phone-login', phoneLogin);
+router.post('/login/phone', phoneLogin);
 
 /**
  * @swagger
