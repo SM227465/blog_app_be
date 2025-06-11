@@ -8,11 +8,9 @@ import { sendOtp } from '../utils/otp.util';
 import { createOtpSession, generateToken } from '../utils/token.util';
 
 export const signup = catchAsync(async (req, res, next) => {
-  const { firstName, lastName, email, phoneNumber, password, confirmPassword, countryCode } = req.body;
+  const { firstName, lastName, email, password, confirmPassword } = req.body;
 
-  const userWithEmailOrPhone = await User.findOne({
-    $or: [{ email: email }, { phoneNumber: phoneNumber, countryCode: countryCode }],
-  });
+  const userWithEmailOrPhone = await User.findOne({ email });
 
   if (userWithEmailOrPhone) {
     return next(new AppError(`A user exists with this email or phone number; if it's you, please login.`, 400));
@@ -22,8 +20,6 @@ export const signup = catchAsync(async (req, res, next) => {
     firstName,
     lastName,
     email,
-    phoneNumber,
-    countryCode,
     password,
     confirmPassword,
   });

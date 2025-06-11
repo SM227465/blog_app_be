@@ -38,8 +38,6 @@ export interface IUser extends Document {
   firstName: string;
   lastName: string;
   email: string;
-  countryCode: string;
-  phoneNumber: string; // Changed to string for better number handling
   role: UserRole;
   password: string;
   confirmPassword?: string;
@@ -86,27 +84,7 @@ const userSchema = new Schema<UserModel>(
       },
       index: true,
     },
-
-    countryCode: {
-      type: String,
-      required: [true, 'Please provide your country code'],
-      validate: {
-        validator: (value: string) => /^\+\d{1,4}$/.test(value),
-        message: 'Invalid country code format',
-      },
-    },
-
-    phoneNumber: {
-      type: String,
-      required: [true, 'Please provide your phone number'],
-      unique: true,
-      validate: {
-        validator: (value: string) => validator.isMobilePhone(value),
-        message: 'Invalid phone number format',
-      },
-      index: true,
-    },
-
+    
     role: {
       type: String,
       enum: Object.values(UserRole),
@@ -161,7 +139,7 @@ const userSchema = new Schema<UserModel>(
 );
 
 // Indexes
-userSchema.index({ email: 1, phoneNumber: 1 });
+userSchema.index({ email: 1});
 
 // Middleware
 userSchema.pre('save', async function (next) {
