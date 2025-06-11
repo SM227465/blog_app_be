@@ -7,17 +7,17 @@ const options: Options = {
   definition: {
     openapi: '3.1.1',
     info: {
-      title: 'TMDB',
-      description: 'TMDB API endpoints documented with Swagger',
+      title: 'Blog App',
+      description: 'Blog App API endpoints documented with Swagger',
       contact: {
-        name: 'Raizo Jr',
-        email: 'sm227465@gmail.com',
+        name: 'Sourav Mandal',
+        email: 'sourav.mandal5282@gmail.com',
       },
       version: '1.0.0',
     },
     servers: [
       {
-        url: 'https://node-express-ts.onrender.com',
+        url: 'https://blog-rdlk.onrender.com',
         description: 'Dev',
       },
     ],
