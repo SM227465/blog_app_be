@@ -20,7 +20,7 @@ app.use(
   helmet.contentSecurityPolicy({
     directives: {
       defaultSrc: ["'self'"],
-      connectSrc: ["'self'", 'https://node-express-ts.onrender.com'],
+      connectSrc: ["'self'", 'https://blog-rdlk.onrender.com'],
     },
   })
 );

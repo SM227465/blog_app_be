@@ -5,13 +5,13 @@ import catchAsync from '../utils/catch-async.util';
 export const createBlog = catchAsync(async (req, res, next) => {
   const { title, content } = req.body;
 
-  if (!title || !content) {
+  if (!title?.trim() || !content?.trim()) {
     return next(new AppError('Title and content are required', 400));
   }
 
   const blog = await Blog.create({
-    title,
-    content,
+    title: title?.trim(),
+    content: content?.trim(),
     author: req.user!._id,
   });
 
@@ -74,7 +74,7 @@ export const updateBlog = catchAsync(async (req, res, next) => {
   const { id } = req.params;
   const { title, content } = req.body;
 
-  if (!title && !content) {
+  if (!title?.trim() && !content?.trim()) {
     return next(new AppError('Please provide title or content or both', 400));
   }
 
