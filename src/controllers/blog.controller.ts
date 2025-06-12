@@ -53,7 +53,7 @@ export const getBlog = catchAsync(async (req, res, next) => {
     })
     .populate({
       path: 'comments',
-      select: 'content',
+      select: 'content createdAt updatedAt',
       populate: {
         path: 'author',
         select: 'firstName lastName',
