@@ -6,6 +6,9 @@ dotenv.config();
 const localDB = process.env.LOCAL_DB_URL!;
 const cloudDB = process.env.CLOUD_DB_URL!;
 
+console.log({cloudDB});
+
+
 
 const connectWithDB = () => {
   mongoose
